@@ -6,4 +6,5 @@ class_name cardRes
 @export var card_light:Texture2D
 @export var card_dark:Texture2D
 @export var max_health := 100			#植物生命
- 
+
+@export var plant_scene:PackedScene

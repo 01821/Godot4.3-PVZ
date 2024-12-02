@@ -72,3 +72,5 @@ script = ExtResource("6_rhml4")
 
 [node name="Click" type="Node" parent="StateMachine"]
 script = ExtResource("7_6vlrs")
+
+[connection signal="pressed" from="CardLight/Button" to="." method="_on_button_pressed"]
