@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgphm0h17i4qk"]
+[gd_scene load_steps=9 format=3 uid="uid://dgphm0h17i4qk"]
 
 [ext_resource type="Script" path="res://Scenes/Manager/sun_manager.gd" id="1_e2wht"]
 [ext_resource type="Texture2D" uid="uid://4ic8m6ad25pf" path="res://textures/Images/Background/iPadHD1.png" id="1_o8jrb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/UI/ui.gd" id="3_c8psq"]
 [ext_resource type="PackedScene" uid="uid://bef68ir2rnf70" path="res://Scenes/Cards/SunFlower/sunFlower.tscn" id="3_uql73"]
 [ext_resource type="PackedScene" uid="uid://c4x7jlwywe134" path="res://Scenes/Cards/PeaShooter/pea_shooter.tscn" id="6_egttu"]
+[ext_resource type="PackedScene" uid="uid://cm1k4e8y4inxx" path="res://Scenes/UI/cell.tscn" id="8_qy7kv"]
 
 [node name="level1" type="Node2D"]
 
@@ -17,9 +18,10 @@ script = ExtResource("1_e2wht")
 start_sun = 250
 sun_label = NodePath("../../UI/ChooseCardBg/Sun_Label")
 
-[node name="HandManager" type="Node2D" parent="Manager" node_paths=PackedStringArray("Plants")]
+[node name="HandManager" type="Node2D" parent="Manager" node_paths=PackedStringArray("Plants", "cell")]
 script = ExtResource("2_5mljy")
 Plants = NodePath("../../Plants")
+cell = NodePath("../../UI/Cell")
 
 [node name="Bg" type="TextureRect" parent="."]
 offset_left = -176.0
@@ -65,5 +67,11 @@ theme_override_font_sizes/font_size = 20
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Cell" parent="UI" instance=ExtResource("8_qy7kv")]
+offset_left = 223.0
+offset_top = 293.0
+offset_right = 296.0
+offset_bottom = 383.0
 
 [node name="Plants" type="Node2D" parent="."]

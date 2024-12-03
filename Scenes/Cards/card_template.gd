@@ -8,6 +8,7 @@ class_name CardTemplate extends Control
 var cd_time := 0.0
 var is_sun_enough := false
 var is_click := false
+var is_plant := false
 
 signal card_click
 

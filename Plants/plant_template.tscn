@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1pybrekxpkba"]
+[gd_scene load_steps=3 format=3 uid="uid://b1pybrekxpkba"]
+
+[ext_resource type="Script" path="res://Plants/plant_template.gd" id="1_nftsx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mqx7h"]
 
 [node name="PlantTemplate" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_mqx7h")
+script = ExtResource("1_nftsx")
