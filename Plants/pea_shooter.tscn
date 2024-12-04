@@ -1,0 +1,106 @@
+[gd_scene load_steps=17 format=3 uid="uid://b8jgylss52iek"]
+
+[ext_resource type="PackedScene" uid="uid://b1pybrekxpkba" path="res://Plants/plant_template.tscn" id="1_etpl5"]
+[ext_resource type="Texture2D" uid="uid://gn5x4btg7k66" path="res://textures/Images/Plants/Peashooter_1-sheet.png" id="2_0leov"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdk5l"]
+atlas = ExtResource("2_0leov")
+region = Rect2(0, 0, 71, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ly0oh"]
+atlas = ExtResource("2_0leov")
+region = Rect2(71, 0, 71, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8smv"]
+atlas = ExtResource("2_0leov")
+region = Rect2(142, 0, 71, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vekl"]
+atlas = ExtResource("2_0leov")
+region = Rect2(213, 0, 71, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ravai"]
+atlas = ExtResource("2_0leov")
+region = Rect2(284, 0, 71, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tr0m"]
+atlas = ExtResource("2_0leov")
+region = Rect2(355, 0, 71, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kwv6"]
+atlas = ExtResource("2_0leov")
+region = Rect2(426, 0, 71, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frbe7"]
+atlas = ExtResource("2_0leov")
+region = Rect2(497, 0, 71, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d7pr"]
+atlas = ExtResource("2_0leov")
+region = Rect2(568, 0, 71, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvrgf"]
+atlas = ExtResource("2_0leov")
+region = Rect2(639, 0, 71, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxvtl"]
+atlas = ExtResource("2_0leov")
+region = Rect2(710, 0, 71, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njcrh"]
+atlas = ExtResource("2_0leov")
+region = Rect2(781, 0, 71, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trtsl"]
+atlas = ExtResource("2_0leov")
+region = Rect2(852, 0, 71, 71)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ihayp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdk5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ly0oh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8smv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vekl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ravai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tr0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kwv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frbe7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d7pr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvrgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxvtl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njcrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trtsl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="PeaShooter" instance=ExtResource("1_etpl5")]
+sprite_frames = SubResource("SpriteFrames_ihayp")

@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var Plants:Node2D
-@export var cell:Cell
+@export var cells:GridContainer
 
 var UINode:UI
 var card_list:Array[CardTemplate]
@@ -13,9 +13,10 @@ func _ready() -> void:
 	card_list = UINode.card_list
 	for card in card_list:
 		card.card_click.connect(_on_card_click)
-	cell.click_cell.connect(_on_click_cell)
-	cell.cell_mouse_enter.connect(_on_cell_mouse_enter)
-	cell.cell_mouse_exit.connect(_on_cell_mouse_exit)
+	for cell in cells.get_children():
+		cell.click_cell.connect(_on_click_cell)
+		cell.cell_mouse_enter.connect(_on_cell_mouse_enter)
+		cell.cell_mouse_exit.connect(_on_cell_mouse_exit)
 	
 
 func _on_card_click(card_res:cardRes):
