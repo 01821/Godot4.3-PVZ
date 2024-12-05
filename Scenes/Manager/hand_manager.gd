@@ -30,12 +30,16 @@ func _on_click_cell(cell:Cell):
 		cell.is_plant = true
 		hand_scene.global_position = cell.global_position + card_res.card_shadow.get_size() / 2
 		hand_scene.reparent(Plants)
-		
+		hand_scene.play("default")
+		hand_scene._finish_plant()
+
 		for card in card_list:
 			if card.card_res.card_type == card_res.card_type:
 				card.is_plant = true
+				card.card_plant.emit(card.card_res.sun_num)
 				break
 		
+		cell.card_shadow.texture = null
 		hand_scene = null
 		card_res = null
 

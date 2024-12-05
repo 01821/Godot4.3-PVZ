@@ -1,7 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://8la23gfbglph"]
+[gd_scene load_steps=27 format=3 uid="uid://8la23gfbglph"]
 
 [ext_resource type="PackedScene" uid="uid://b1pybrekxpkba" path="res://Plants/plant_template.tscn" id="1_odcwo"]
 [ext_resource type="Texture2D" uid="uid://1wy13rxevc5s" path="res://textures/Images/Plants/SunFlower_1-sheet2.png" id="2_vswoo"]
+[ext_resource type="Script" path="res://Plants/sun_flower.gd" id="3_sjcal"]
+[ext_resource type="PackedScene" uid="uid://ogv7wh031duf" path="res://Scenes/Components/birth_sun_component.tscn" id="3_wt4nt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5hmt"]
 atlas = ExtResource("2_vswoo")
@@ -137,5 +139,50 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_kpc2v"]
+resource_name = "birth_sun"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.2, 1.2, 1, 1), Color(1.5, 1.5, 1, 1), Color(1.5, 1.5, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ar8ww"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5fwix"]
+_data = {
+"RESET": SubResource("Animation_ar8ww"),
+"birth_sun": SubResource("Animation_kpc2v")
+}
+
 [node name="SunFlower" instance=ExtResource("1_odcwo")]
 sprite_frames = SubResource("SpriteFrames_r1cdy")
+script = ExtResource("3_sjcal")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_5fwix")
+}
+
+[node name="BirthSunComponent" parent="." index="1" instance=ExtResource("3_wt4nt")]

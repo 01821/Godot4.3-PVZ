@@ -1,28 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://dgphm0h17i4qk"]
+[gd_scene load_steps=9 format=3 uid="uid://dgphm0h17i4qk"]
 
 [ext_resource type="Script" path="res://Scenes/Manager/sun_manager.gd" id="1_e2wht"]
 [ext_resource type="Texture2D" uid="uid://4ic8m6ad25pf" path="res://textures/Images/Background/iPadHD1.png" id="1_o8jrb"]
 [ext_resource type="Script" path="res://Scenes/Manager/hand_manager.gd" id="2_5mljy"]
 [ext_resource type="Texture2D" uid="uid://beu4irqktr4rh" path="res://textures/Images/UI/ChooserBackground.png" id="2_rshtc"]
 [ext_resource type="Script" path="res://Scenes/UI/ui.gd" id="3_c8psq"]
-[ext_resource type="Script" path="res://Scenes/Cards/card_template.gd" id="6_16va4"]
+[ext_resource type="PackedScene" uid="uid://bef68ir2rnf70" path="res://Scenes/Cards/SunFlower/sunFlower.tscn" id="3_uql73"]
 [ext_resource type="PackedScene" uid="uid://c4x7jlwywe134" path="res://Scenes/Cards/PeaShooter/pea_shooter.tscn" id="6_egttu"]
-[ext_resource type="Resource" uid="uid://s8cjajb4px8v" path="res://resource/Cards/card_sunFlowerRes.tres" id="7_a0adn"]
 [ext_resource type="PackedScene" uid="uid://cm1k4e8y4inxx" path="res://Scenes/UI/cell.tscn" id="8_qy7kv"]
-[ext_resource type="Script" path="res://StateMachine/state_machine.gd" id="8_vtmb1"]
-[ext_resource type="Script" path="res://Scenes/Cards/States/disable.gd" id="9_b157t"]
-[ext_resource type="Script" path="res://Scenes/Cards/States/cooling.gd" id="10_bcy6l"]
-[ext_resource type="Script" path="res://Scenes/Cards/States/waiting_sun.gd" id="11_ctglp"]
-[ext_resource type="Script" path="res://Scenes/Cards/States/ready.gd" id="12_q743m"]
-[ext_resource type="Script" path="res://Scenes/Cards/States/click.gd" id="13_uljn0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ilv24"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2l8i"]
-bg_color = Color(1, 1, 1, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5p1hp"]
-bg_color = Color(0, 0, 0, 0.72549)
 
 [node name="level1" type="Node2D"]
 
@@ -63,62 +48,8 @@ offset_right = 512.0
 offset_bottom = 78.0
 theme_override_constants/separation = 54
 
-[node name="SunFlower" type="Control" parent="UI/ChooseCardBg/CardUIList"]
+[node name="SunFlower" parent="UI/ChooseCardBg/CardUIList" instance=ExtResource("3_uql73")]
 layout_mode = 2
-script = ExtResource("6_16va4")
-card_res = ExtResource("7_a0adn")
-
-[node name="CardLight" type="TextureRect" parent="UI/ChooseCardBg/CardUIList/SunFlower"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Button" type="Button" parent="UI/ChooseCardBg/CardUIList/SunFlower/CardLight"]
-layout_mode = 0
-offset_right = 50.0
-offset_bottom = 70.0
-mouse_default_cursor_shape = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ilv24")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ilv24")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ilv24")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_ilv24")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_ilv24")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ilv24")
-
-[node name="CardDark" type="TextureRect" parent="UI/ChooseCardBg/CardUIList/SunFlower"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CardCool" type="ProgressBar" parent="UI/ChooseCardBg/CardUIList/SunFlower"]
-layout_mode = 0
-offset_right = 50.0
-offset_bottom = 70.0
-mouse_filter = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_d2l8i")
-theme_override_styles/fill = SubResource("StyleBoxFlat_5p1hp")
-value = 100.0
-fill_mode = 2
-show_percentage = false
-
-[node name="StateMachine" type="Node" parent="UI/ChooseCardBg/CardUIList/SunFlower" node_paths=PackedStringArray("init_state")]
-script = ExtResource("8_vtmb1")
-init_state = NodePath("Cooling")
-
-[node name="Disable" type="Node" parent="UI/ChooseCardBg/CardUIList/SunFlower/StateMachine"]
-script = ExtResource("9_b157t")
-
-[node name="Cooling" type="Node" parent="UI/ChooseCardBg/CardUIList/SunFlower/StateMachine"]
-script = ExtResource("10_bcy6l")
-
-[node name="WaitingSun" type="Node" parent="UI/ChooseCardBg/CardUIList/SunFlower/StateMachine"]
-script = ExtResource("11_ctglp")
-
-[node name="Ready" type="Node" parent="UI/ChooseCardBg/CardUIList/SunFlower/StateMachine"]
-script = ExtResource("12_q743m")
-
-[node name="Click" type="Node" parent="UI/ChooseCardBg/CardUIList/SunFlower/StateMachine"]
-script = ExtResource("13_uljn0")
 
 [node name="PeaShooter" parent="UI/ChooseCardBg/CardUIList" instance=ExtResource("6_egttu")]
 layout_mode = 2
@@ -282,5 +213,3 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Plants" type="Node2D" parent="."]
-
-[connection signal="pressed" from="UI/ChooseCardBg/CardUIList/SunFlower/CardLight/Button" to="UI/ChooseCardBg/CardUIList/SunFlower" method="_on_button_pressed"]

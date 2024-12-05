@@ -8,6 +8,7 @@ func enter():
 	card_template.cd_time = 0.0
 	card_template.card_cool_progress.value = 100
 	card_template.card_dark.visible = true
+	card_template.is_click = false
 
 func update(_delta: float):
 	card_template.cd_time += _delta

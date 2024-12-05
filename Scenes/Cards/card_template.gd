@@ -11,6 +11,7 @@ var is_click := false
 var is_plant := false
 
 signal card_click
+signal card_plant
 
 func _ready() -> void:
 	card_light.texture = card_res.card_light
