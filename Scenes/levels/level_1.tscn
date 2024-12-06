@@ -13,7 +13,7 @@
 
 [node name="Manager" type="Node" parent="."]
 
-[node name="SunManager" type="Node" parent="Manager" node_paths=PackedStringArray("sun_label")]
+[node name="SunManager" type="Node" parent="Manager" node_paths=PackedStringArray("sun_label") groups=["SunManager"]]
 script = ExtResource("1_e2wht")
 start_sun = 250
 sun_label = NodePath("../../UI/ChooseCardBg/Sun_Label")
