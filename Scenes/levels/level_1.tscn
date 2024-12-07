@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgphm0h17i4qk"]
+[gd_scene load_steps=10 format=3 uid="uid://dgphm0h17i4qk"]
 
 [ext_resource type="Script" path="res://Scenes/Manager/sun_manager.gd" id="1_e2wht"]
 [ext_resource type="Texture2D" uid="uid://4ic8m6ad25pf" path="res://textures/Images/Background/iPadHD1.png" id="1_o8jrb"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bef68ir2rnf70" path="res://Scenes/Cards/SunFlower/sunFlower.tscn" id="3_uql73"]
 [ext_resource type="PackedScene" uid="uid://c4x7jlwywe134" path="res://Scenes/Cards/PeaShooter/pea_shooter.tscn" id="6_egttu"]
 [ext_resource type="PackedScene" uid="uid://cm1k4e8y4inxx" path="res://Scenes/UI/cell.tscn" id="8_qy7kv"]
+[ext_resource type="PackedScene" uid="uid://ogv7wh031duf" path="res://Scenes/Components/birth_sun_component.tscn" id="9_4q2ys"]
 
 [node name="level1" type="Node2D"]
 
@@ -211,5 +212,7 @@ layout_mode = 2
 
 [node name="Cell45" parent="UI/Cells" instance=ExtResource("8_qy7kv")]
 layout_mode = 2
+
+[node name="BirthSunComponent" parent="UI" instance=ExtResource("9_4q2ys")]
 
 [node name="Plants" type="Node2D" parent="."]

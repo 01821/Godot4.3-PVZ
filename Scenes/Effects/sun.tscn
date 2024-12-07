@@ -169,6 +169,7 @@ animations = [{
 
 [node name="Sun" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_dwyd0")
+autoplay = "default"
 script = ExtResource("2_ryypb")
 
 [node name="Button" type="Button" parent="."]
@@ -184,4 +185,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_sai7a")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_sai7a")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sai7a")
 
+[node name="DisappearTimer" type="Timer" parent="."]
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]
